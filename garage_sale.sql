@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `garage_sale`
 --
+CREATE DATABASE IF NOT EXISTS `garage_sale` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `garage_sale`;
 
 -- --------------------------------------------------------
 
