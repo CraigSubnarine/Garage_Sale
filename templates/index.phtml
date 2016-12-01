@@ -1,0 +1,134 @@
+{% extends "base.phtml" %}
+
+{% block content %}
+
+<div class="row" ng-app="info3410">
+	<div ng-view></div>
+</div>
+
+<!--	Form Row-->
+<div class="row">
+	<form onsubmit="return saveProduct();" class="form-horizontal" method="POST" action="index.php/products">
+		<fieldset>
+			
+			<!-- Form Name -->
+			<legend style="text-align:center">Add Product</legend>
+			
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="name">Product Name</label>
+				<div class="col-md-4">
+					<input id="name" name="name" type="text" placeholder="Name" class="form-control input-md" required="">
+				
+				</div>
+			</div>
+			
+			<!-- Select Basic -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="country">Select Country</label>
+				<div class="col-md-4">
+					<select id="country" name="country" class="form-control">
+						<option value="0">Choose Country</option>
+					</select>
+				</div>
+			</div>
+			
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="price">Price</label>
+				<div class="col-md-4">
+					<input id="price" name="price" type="text" placeholder="Price" class="form-control input-md" required="">
+				
+				</div>
+			</div>
+			
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="saveBnt"></label>
+				<div class="col-md-4">
+					<button id="saveBnt" name="saveBnt" class="btn btn-primary" title="Save Product"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+				</div>
+			</div>
+		
+		</fieldset>
+	</form>
+</div>
+<!-- End Row for Form -->
+
+<div class="row" id="cart_form" style="display:none">
+	<form onsubmit="return saveCartItem();" class="form-horizontal" method="POST" action="cart.php">
+		<fieldset>
+			<!-- Form Name -->
+			<legend style="text-align:center">Add To Cart</legend>
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="name">Product ID</label>
+				<div class="col-md-4">
+					<input id="productId" name="id" type="text" disabled placeholder="ID" class="form-control input-md" required="">
+				</div>
+			</div>
+			
+			
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="name">Product Name</label>
+				<div class="col-md-4">
+					<input id="productName" name="name" type="text" disabled placeholder="Name" class="form-control input-md" required="">
+				</div>
+			</div>
+			
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="price">Price</label>
+				<div class="col-md-4">
+					<input id="productPrice" name="price" type="text" disabled placeholder="Price" class="form-control input-md" required="">
+				</div>
+			</div>
+			
+			<!-- Select Basic -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="country">Select Quantity</label>
+				<div class="col-md-4">
+					<select name="quantity" id="quantity" required="" class="form-control">
+						<option value="0">Select Quantity</option>
+						<option value="1" selected>1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+					</select>
+				</div>
+			</div>
+			
+			
+			
+			<!-- Button -->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="saveBnt"></label>
+				<div class="col-md-4">
+					<button id="addCartBtn" name="saveBnt" class="btn btn-primary" title="Add to Cart"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+				</div>
+			</div>
+		
+		</fieldset>
+	</form>
+</div>
+
+<div class="row">
+	<div class="col-md-8 col-md-offset-2 table-responsive">
+		<h4>Products</h4>
+		<p>A table highlighting the available products</p>
+		<div id="table_sec"></div>
+	</div>
+</div>
+
+<script type="text/template" id="table_heading">
+	<table class="table table-bordered">
+		<thead>
+		<tr>
+			<th>Product</th><th>Price</th><th>Country</th><th>Controls</th>
+		</tr>
+		</thead>
+		<tbody>
+</script>
+
+{% endblock %}

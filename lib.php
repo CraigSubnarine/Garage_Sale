@@ -59,8 +59,14 @@
 	}
 
 	function interested($db, $itemid, $uid){
-		$num
+		$num;
 		$sql="INSERT INTO `interest` (`userid`, `itemid`) VALUES('$uid', 'itemid')";
+		$res=$db->query($sql);
+		if($res && $db->insert_id > 0){
+			$id=$db->insert_id;
+			$num=$db->query("SELECT *");
+			$sqlu="UPDATE `items` SET `hide`=1 WHERE `id`='$id';";
+		}
 	}
 
 	function update(){
