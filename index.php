@@ -28,14 +28,22 @@ $app = new App($container);
 
 
 $app->get('/', function (Request $request, Response $response) {//for index main page
-  //$response->getBody()->write("Show index page here");
-  //return $response;
-
   return $this->renderer->render($response, "/index.phtml");//file in template folder
 });
 
 
 $app->get('/hello', function (Request $request, Response $response) {//no real purpose
+/*
+  include_once('MyView.php');
+
+  $t = new MyView();
+
+  $t->friends = array(
+    'Rachel', 'Monica', 'Phoebe', 'Chandler', 'Joey', 'Ross'
+  );
+
+  $t->render('hello.phtml');
+*/
   return $this->renderer->render($response, "/hello.phtml");//file in template folder
 });
 
@@ -57,7 +65,7 @@ $app->get('/user/{id}', function (Request $request, Response $response, $args) {
 
 $app->get('/items/{id}', function (Request $request, Response $response, $args) {//prints item with itemid 'id' in json format
     $id = $args['id'];
-    $item=getItem($id);
+    $item=getItem($id);//fuction from lib.php
     if($item!=null)
       $response = $response->withJson($item);
     else
