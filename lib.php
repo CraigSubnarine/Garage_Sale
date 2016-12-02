@@ -269,7 +269,7 @@ function addInterest($iid){
 	return $row;
 }
 
-var_dump(addInterest(1));
+// var_dump(addInterest(1));
 
 function subtractInterest(){
 
