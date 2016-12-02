@@ -45,6 +45,21 @@ function saveUser($name, $password, $email, $contactno){
 // echo saveUser("John", "hello1234", "john@gmail.com", 5555555);
 // echo saveUser("Jane", "1234hello", "jane@gmail.com", 4444444);
 
+function getUser($id){
+	$db = getDBConnection();
+	$rec=null;
+	if ($db != null){
+		$sql = "SELECT * FROM `users` WHERE userid = '$id'";
+		$res = $db->query($sql);
+		if($res)
+			$rec=$res->fetch_assoc();
+		$db->close();
+	}
+	return $rec;
+}
+
+//var_dump(getUser(1));
+
 function getAllAvalibleItems(){
 	$db = getDBConnection();
 	$items = [];
@@ -269,7 +284,7 @@ function addInterest($iid){
 	return $row;
 }
 
-var_dump(addInterest(1));
+//var_dump(addInterest(1));
 
 function subtractInterest(){
 
