@@ -28,6 +28,9 @@ $app = new App($container);
 
 
 $app->get('/', function (Request $request, Response $response) {//for index main page
+  if($_SESSION['id']='-1')//[debug] check where session id is initialized and set if errors occur
+    return $this->renderer->render($response, "/login.phtml");
+  
   return $this->renderer->render($response, "/index.phtml");//file in template folder
 });
 
@@ -74,6 +77,21 @@ $app->get('/items/{id}', function (Request $request, Response $response, $args) 
     return $response;
   });
 
+$app->get('/usrIntr/{uid}/{iid}', function (Request $request, Response $response, $args){
+  $uid=$args['uid'];
+  $item=$args['iid'];
+
+  if($uid!=null && $item!=null){
+    $res=makeInterest($uid,$item);
+    if($res){
+      $response=$uid." is interested in ".$item;
+    }
+    else
+      $response=$uid." could not make new interest in ".$item;
+  }
+
+  return $response;
+});
 
 
 $app->run();

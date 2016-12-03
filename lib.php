@@ -197,9 +197,9 @@ function login($name, $password){
 	if ($db != null){
 		$sql = "SELECT `userid`, `username` FROM `users` WHERE '$name' = username AND '$password' = password;";
 		$res = $db->query($sql);
-		if ($res){
-			// $_SESSION['username']=$username;
-			// $_SESSION['id']=$res['id'];
+		if ($res && $row=$res->fetch_assoc()){
+			$_SESSION['username']=$name;
+			$_SESSION['id']=$row['userid'];
 			$db->close();
 			return true;
 		}
@@ -207,7 +207,7 @@ function login($name, $password){
 	}
 	return false;
 }
-// var_dump(login("Mike","1234"));
+//var_dump(login("Mike","1234"));
 
 function logout(){
 		$_SESSION['username']="";
@@ -225,11 +225,16 @@ function makeInterest($uid, $iid){
 		if ($res && $row = $res->fetch_assoc()){
 			$interested = true;
 		}else{
-			$sql = "INSERT INTO `interests` (`userid`, `itemid`) VALUES ($uid, $iid);";
-			$res2 = $db->query($sql);
-			if ($res2){
-				$interested = true;
+			$res=getItem($iid);
+			if($res!=null){
+				$sql = "INSERT INTO `interests` (`userid`, `itemid`) VALUES ($uid, $iid);";
+				$res2 = $db->query($sql);
+				if ($res2){
+					$interested = true;
+				}
 			}
+			else
+				$interested=false;
 		}
 		$db->close();
 	}
