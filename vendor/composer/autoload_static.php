@@ -34,6 +34,7 @@ class ComposerStaticInitd6a379e43fedfacefb1314ae1f5c688d
         'Slim\\Views\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/php-view/src',
+            1 => __DIR__ . '/..' . '/slim/twig-view/src',
         ),
         'Slim\\' => 
         array (
@@ -54,6 +55,13 @@ class ComposerStaticInitd6a379e43fedfacefb1314ae1f5c688d
     );
 
     public static $prefixesPsr0 = array (
+        'T' => 
+        array (
+            'Twig_' => 
+            array (
+                0 => __DIR__ . '/..' . '/twig/twig/lib',
+            ),
+        ),
         'P' => 
         array (
             'Pimple' => 
