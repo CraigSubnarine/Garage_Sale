@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2016 at 01:51 PM
+-- Generation Time: Dec 04, 2016 at 06:26 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -25,9 +25,24 @@ USE `garage_sale`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `images`
+--
+
+DROP TABLE IF EXISTS `images`;
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `path` varchar(200) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `interests`
 --
 
+DROP TABLE IF EXISTS `interests`;
 CREATE TABLE `interests` (
   `userid` int(11) NOT NULL,
   `itemid` int(255) NOT NULL
@@ -39,6 +54,7 @@ CREATE TABLE `interests` (
 -- Table structure for table `items`
 --
 
+DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
   `itemid` int(255) NOT NULL,
   `itemname` varchar(100) NOT NULL,
@@ -48,17 +64,18 @@ CREATE TABLE `items` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `price` varchar(10) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `interestno` int(55) NOT NULL DEFAULT '0'
+  `interestno` int(55) NOT NULL DEFAULT '0',
+  `imageId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`itemid`, `itemname`, `userid`, `type`, `description`, `timestamp`, `price`, `quantity`, `interestno`) VALUES
-(1, 'Pants', 1, 'clothing', 'new and very stylish', '2016-12-01 11:43:26', '10', 10, 0),
-(2, 'T-shirt', 1, 'clothing', 'old levis', '2016-12-01 06:37:51', '4', 10, 0),
-(3, 'Slipper', 2, 'footwear', 'american eagle', '2016-12-01 07:14:55', '2', 0, 0);
+INSERT INTO `items` (`itemid`, `itemname`, `userid`, `type`, `description`, `timestamp`, `price`, `quantity`, `interestno`, `imageId`) VALUES
+(1, 'Pants', 1, 'clothing', 'new and very stylish', '2016-12-01 11:43:26', '10', 10, 0, 0),
+(2, 'T-shirt', 1, 'clothing', 'old levis', '2016-12-01 06:37:51', '4', 10, 0, 0),
+(3, 'Slipper', 2, 'footwear', 'american eagle', '2016-12-01 07:14:55', '2', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -66,6 +83,7 @@ INSERT INTO `items` (`itemid`, `itemname`, `userid`, `type`, `description`, `tim
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `userid` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
@@ -87,6 +105,12 @@ INSERT INTO `users` (`userid`, `username`, `password`, `email`, `contactno`) VAL
 --
 
 --
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `items`
 --
 ALTER TABLE `items`
@@ -102,6 +126,11 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `items`
 --
