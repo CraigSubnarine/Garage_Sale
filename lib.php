@@ -1,5 +1,5 @@
 <?php
-
+//sets up DB connection and allows for modularity in design
 function getDBConnection(){
 	try{ // Uses try and catch to handle any unforeseen errors
 		$db = new mysqli("localhost","root","","garage_sale");
@@ -11,7 +11,7 @@ function getDBConnection(){
 
 function saveItem($name, $uid, $price, $type, $description, $quantity){
 	$sql = "INSERT INTO `items`(`itemname`, `userid`, `type`, `description`, `price`, `quantity`)
-					VALUES ('$name', $uid, '$type', '$description', $price, $quantity)";
+					VALUES ('$name', $uid, '$type', '$description', $price, $quantity);";
 	$db = getDBConnection();
 	$id = -1;
 	if ($db != null){
@@ -27,9 +27,10 @@ function saveItem($name, $uid, $price, $type, $description, $quantity){
 // echo saveItem("T-shirt", 1, 4, "clothing", "old levis", 10);
 // echo saveItem("Slipper", 2, 2, "footwear", "american eagle", 0);
 
+//saves user to the database with password encrypted in SHA1
 function saveUser($name, $password, $email, $contactno){
 	$password = sha1($password);
-	$sql = "INSERT INTO `users`(`username`, `password`, `email`, `contactno`) VALUES ('$name', '$password', '$email', $contactno)";
+	$sql = "INSERT INTO `users`(`username`, `password`, `email`, `contactno`) VALUES ('$name', '$password', '$email', $contactno);";
 	$db = getDBConnection();
 	$id = -1;
 	if ($db != null){
@@ -49,7 +50,7 @@ function getUser($id){
 	$db = getDBConnection();
 	$rec=null;
 	if ($db != null){
-		$sql = "SELECT * FROM `users` WHERE userid = '$id'";
+		$sql = "SELECT * FROM `users` WHERE userid = '$id';";
 		$res = $db->query($sql);
 		if($res)
 			$rec=$res->fetch_assoc();
@@ -64,7 +65,7 @@ function getAllAvalibleItems(){
 	$db = getDBConnection();
 	$items = [];
 	if ($db != null){
-		$sql = "SELECT * FROM `items` WHERE 0 < quantity";
+		$sql = "SELECT * FROM `items` WHERE 0 < quantity;";
 		$res = $db->query($sql);
 		while($res && $row = $res->fetch_assoc()){
 			$items[] = $row;
@@ -79,7 +80,7 @@ function getTypeOfItem($type){
 	$db = getDBConnection();
 	$items = [];
 	if ($db != null){
-		$sql = "SELECT * FROM `items` WHERE '$type' = type AND 0 < quantity";
+		$sql = "SELECT * FROM `items` WHERE '$type' = type AND 0 < quantity;";
 		$res = $db->query($sql);
 		while($res && $row = $res->fetch_assoc()){
 			$items[] = $row;
@@ -107,6 +108,7 @@ function getAllUserItems($uid){
 
 //var_dump(getAllUserItems(1));
 
+//returns items based on the user id that are available , availability is determines by a value greater than 0 in quantity
 function getAvalibleUserItems($uid){
 	$db = getDBConnection();
 	$items = [];
@@ -123,7 +125,7 @@ function getAvalibleUserItems($uid){
 
 // var_dump(getAvalibleUserItems(1));
 
-
+//returns items based on the user id that are unavailable , unavailability is determines by a value of 0 in quantity
 function getUnavalibleUserItems($uid){
 	$db = getDBConnection();
 	$items = [];
