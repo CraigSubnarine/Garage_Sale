@@ -58,7 +58,7 @@ function getUser($id){
 	return $rec;
 }
 
-//var_dump(getUser(1));
+var_dump(getUser(1));
 
 function getAllAvalibleItems(){
 	$db = getDBConnection();
