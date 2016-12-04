@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function getDBConnection(){
 	try{ // Uses try and catch to handle any unforeseen errors
 		$db = new mysqli("localhost","root","","garage_sale");
@@ -211,7 +213,7 @@ function login($name, $password){
 
 function logout(){
 		$_SESSION['username']="";
-		$_SESSION['id']=0;
+		$_SESSION['id']=-1;
 		return true;
 }
 
