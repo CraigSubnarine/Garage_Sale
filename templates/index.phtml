@@ -21,6 +21,13 @@
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link href="../css/main.css" rel="stylesheet" type="text/css">
+
+
+
+   <!-- <script src="js/main.js"></script> -->
+    
+
+
     <!-- <link rel="stylesheet" href="css/style.css"> -->
 
 
@@ -81,8 +88,18 @@
     <!-- Page Content -->
     <div class="container">
 
-
-        <hr>
+        <div class="row">
+            <div id="table_sec"></div>
+        </div>
+        <script type="text/template" id="table_heading">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Item</th><th>Price</th><th>Type</th><th>User</th>
+                </tr>
+                </thead>
+                <tbody>
+        </script>
 
     </div>
     <!-- /.container -->
@@ -95,6 +112,15 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../js/bootstrap.min.js"></script>
+
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="../js/main.js"></script>
+    
+    
 
 </body>
 

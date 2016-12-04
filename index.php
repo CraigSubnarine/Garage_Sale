@@ -29,7 +29,7 @@ $app = new App($container);
 
 
 $app->get('/', function (Request $request, Response $response) {//for index main page
-  if($_SESSION['id']='-1')//[debug] check where session id is initialized and set if errors occur
+  if($_SESSION['id']=-1)//[debug] check where session id is initialized and set if errors occur
     return $this->renderer->render($response, "/login.phtml");
   
   return $this->renderer->render($response, "/index.phtml");//file in template folder
