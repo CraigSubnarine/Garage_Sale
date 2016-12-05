@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 function getDBConnection(){
 	try{ // Uses try and catch to handle any unforeseen errors

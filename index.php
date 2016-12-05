@@ -32,7 +32,7 @@ $app->get('/', function (Request $request, Response $response) {//for index main
   if($_SESSION['id']=-1)//[debug] check where session id is initialized and set if errors occur
     return $this->renderer->render($response, "/login.phtml");
   
-  return $this->renderer->render($response, "/index.phtml");//file in template folder
+  return $this->renderer->render($response, "/home.php");//file in template folder
 });
 
 
@@ -44,9 +44,10 @@ $app->post('/main', function (Request $request, Response $response) {//login
 
   $res = login($uName, $pass);
   if($res)
-    return $this->renderer->render($response, "/index.phtml");//file in template folder
+    return $this->renderer->render($response, "/home.php");//file in template folder
   else
     return $this->renderer->render($response, "/login.phtml");
+    //return false;
 });
 
 

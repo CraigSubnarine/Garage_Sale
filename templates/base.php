@@ -1,3 +1,9 @@
+<?php
+    if(!isset($_SESSION)){
+      session_start();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,6 +27,7 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/style.css"> -->
 
 
@@ -34,6 +41,9 @@
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link href="../css/main.css" rel="stylesheet" type="text/css">
+   
+    <link rel="stylesheet" href="../css/style.css">
+
 
     <!-- jQuery -->
     <script src="../js/jquery.js"></script>
@@ -62,19 +72,19 @@
                     <span class="sr-only">Toggle navigation</span>
                     <span class="glyphicon glyphicon-menu-hamburger glyphicon-default"></span>
                 </button>
-                <a class="navbar-brand" href="#">Garage</a>
+                <a class="navbar-brand" href="http://localhost:8080/garage_sale/templates/home.php">Garage</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                   <li>
-                      <a href="#"><span class="glyphicon glyphicon-plus"></span>  New Item</a>
+                      <a href="http://localhost:8080/garage_sale/templates/newitem.php"><span class="glyphicon glyphicon-plus"></span>  New Item</a>
                   </li>
                     <li>
-                        <a href="#"><span class="glyphicon glyphicon-user"></span>  Profile</a>
+                        <a href="http://localhost:8080/garage_sale/templates/myprofile.php"><span class="glyphicon glyphicon-user"></span>  Profile</a>
                     </li>
                     <li>
-                        <a href="#"><span class="glyphicon glyphicon-tags"></span>  Sales</a>
+                        <a href="http://localhost:8080/garage_sale/templates/stats.php"><span class="glyphicon glyphicon-tags"></span>  Sales</a>
                     </li>
                     <li>
                         <a href="#"><span class="glyphicon glyphicon-pushpin"></span>  My Interests</a>

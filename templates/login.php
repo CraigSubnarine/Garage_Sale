@@ -1,20 +1,12 @@
-<?php
-  include 'lib.php';
-  $_SESSION['id']=-1;
-?>
-
 <!DOCTYPE html>
-<html>
+<html >
 <head>
   <meta charset="UTF-8">
   <title>Sign-Up/Login Form</title>
   <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet" href="../css/style.css">
-
+  <link rel="stylesheet" href="../css/style.css">
+  
 </head>
 
 <body>
@@ -28,20 +20,20 @@
         <div id="login">
           <h1>Welcome!</h1>
 
-          <form action="index.php/main" method="POST">
+          <form action="/" method="post">
 
             <div class="field-wrap">
             <label>
               Username<span class="req">*</span>
             </label>
-            <input type="text"required autocomplete="off" name="username"/>
+            <input type="text"required autocomplete="off"/>
           </div>
 
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off" name="password"/>
+            <input type="password"required autocomplete="off"/>
           </div>
 
           <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->
@@ -55,13 +47,13 @@
         <div id="signup">
           <h1>Sign Up for Free</h1>
 
-          <form action="index.php/reg" method="POST">
+          <form action="/" method="post">
             <div class="field-wrap">
               <div class="field-wrap">
                 <label>
                   Username<span class="req">*</span>
                 </label>
-                <input type="text" required autocomplete="off" name="username"/>
+                <input type="text" required autocomplete="off" />
               </div>
             </div>
 
@@ -69,14 +61,14 @@
               <label>
                 Email Address<span class="req">*</span>
               </label>
-              <input type="email"required autocomplete="off" name="email"/>
+              <input type="email"required autocomplete="off"/>
             </div>
 
             <div class="field-wrap">
               <label>
                 Password<span class="req">*</span>
               </label>
-              <input type="password"required autocomplete="off" name="password"/>
+              <input type="password"required autocomplete="off"/>
             </div>
 
             <div class="field-wrap">
@@ -84,7 +76,7 @@
                 <label>
                   Contact<span class="req">*</span>
                 </label>
-                <input type="tel"required autocomplete="off" name="contact"/>
+                <input type="tel"required autocomplete="off"/>
               </div>
             </div>
 
@@ -99,7 +91,7 @@
 
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-  <script src="js/index.js"></script>
   <script src="../js/index.js"></script>
+
 </body>
 </html>
