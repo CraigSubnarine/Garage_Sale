@@ -1,5 +1,5 @@
 <?php
-  require "base.php";
+  require __DIR__ . "\base.php";
 ?>
 
   <div class="container">
@@ -41,7 +41,7 @@
       </div>
 
       <!-- Project One -->
-        <div class="row">
+        <!-- <div class="row">
                 <div class="col-md-6 panel panel-default text-center">
                     <div class="panel-heading">
                         <span class="fa-stack fa-5x">
@@ -56,8 +56,13 @@
                         <p>Type</p>
                         <button type="button" class="btn btn-warning" href="#"><span class="glyphicon glyphicon-eye-open"></span> View Product</i></Button>
                     </div>
-          </div>
+          </div> -->
       <!-- /.row -->
+        <!-- <div class="row"> -->
+            <div id="row_sec"></div>
+        <!-- </div> -->
+
+      
 
     </div>
 </body>

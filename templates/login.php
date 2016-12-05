@@ -20,20 +20,20 @@
         <div id="login">
           <h1>Welcome!</h1>
 
-          <form action="/" method="post">
+          <form action="templates/home.php" method="POST">
 
             <div class="field-wrap">
             <label>
               Username<span class="req">*</span>
             </label>
-            <input type="text"required autocomplete="off"/>
+            <input type="text"required autocomplete="off" name="username"/>
           </div>
 
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password"required autocomplete="off"/>
+            <input type="password"required autocomplete="off" name="password"/>
           </div>
 
           <!-- <p class="forgot"><a href="#">Forgot Password?</a></p> -->

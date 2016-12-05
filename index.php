@@ -36,7 +36,7 @@ $app->get('/', function (Request $request, Response $response) {//for index main
 });
 
 
-$app->post('/main', function (Request $request, Response $response) {//login
+$app->post('templates/home.php', function (Request $request, Response $response) {//login
 
   //$post = $request->getParsedBody();
   $uName = $_POST['username'];
@@ -46,7 +46,7 @@ $app->post('/main', function (Request $request, Response $response) {//login
   if($res)
     return $this->renderer->render($response, "/home.php");//file in template folder
   else
-    return $this->renderer->render($response, "/login.phtml");
+    return $this->renderer->render($response, "../");
     //return false;
 });
 
@@ -62,7 +62,7 @@ $app->post('/reg', function (Request $request, Response $response) {//registrati
 
   $res = saveUser($uName, $pass, $email, $contact);
   if($res)
-    return $this->renderer->render($response, "/index.phtml");//file in template folder
+    return $this->renderer->render($response, "/home.phtml");//file in template folder
   else
     return $this->renderer->render($response, "/login.phtml");
 });

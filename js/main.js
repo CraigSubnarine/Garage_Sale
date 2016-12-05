@@ -22,6 +22,38 @@ function processAllItems(records){
 
 function createTable(records){
     var key;
+    var sec_id = "#row_sec";
+    var htmlStr; //Includes all the table, thead and tbody declarations
+
+    records.forEach(function(el){
+        htmlStr += "<div class='row'>";
+        htmlStr +="<div class='col-md-6 panel panel-default text-center'> <div class='panel-heading'> <span class='fa-stack fa-5x'> <i class='fa fa-circle fa-stack-2x text-primary'></i> <i class='fa fa-tree fa-stack-1x fa-inverse'></i> </span> </div> </div>";
+        
+        /*
+        htmlStr += "<td>" + el['itemname'] + "</td>";
+        htmlStr += "<td>" + el['price'] + "</td>";
+        htmlStr += "<td>"+ el['type'] +"</td>";
+        htmlStr += "<td><button class='btn btn-primary' onclick=\"display("+el.itemid+")\"><i class='fa fa-eye' aria-hidden='true'></i></button> ";
+        //htmlStr += "<button class='btn btn-success' onclick=\"addCart("+el.id+")\"><i class='fa fa-cart-plus' aria-hidden='true'></i></button> ";
+        htmlStr += "<button class='btn btn-success' onclick=\"makeInterest("+el.itemid+")\"><i class='fa fa-check' aria-hidden='true'></i></button></td>";
+        */
+        htmlStr +="<div class='col-md-5 panel-body'>";
+        htmlStr +="<h4>"+el.itemname+"</h4>";
+        htmlStr +="<p>"+el.price+"</p>";
+        htmlStr +="<p>"+el.type+"</p>";
+        htmlStr +="<button type='button' class='btn btn-warning' href='#''><span class='glyphicon glyphicon-eye-open'></span> View Product</i></Button>";
+        htmlStr +="</div>";
+        htmlStr +="</div>" ;
+
+
+    });
+
+    //htmlStr += "</tbody></table>";
+    $(sec_id).html(htmlStr);
+}
+
+function createTable2(records){
+    var key;
     var sec_id = "#table_sec";
     var htmlStr = $("#table_heading").html(); //Includes all the table, thead and tbody declarations
 
