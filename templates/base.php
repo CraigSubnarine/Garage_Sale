@@ -23,12 +23,6 @@
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <!-- <link rel="stylesheet" href="css/style.css"> -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
 
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -48,6 +42,11 @@
     <script src="../js/bootstrap.min.js"></script>
 
 
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
 
 </head>
