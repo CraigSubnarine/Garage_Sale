@@ -14,6 +14,7 @@ include "lib.php";
 
 
 
+
 $configuration = [
     'settings' => [
         'displayErrorDetails' => true,
@@ -28,24 +29,52 @@ $app = new App($container);
 
 
 $app->get('/', function (Request $request, Response $response) {//for index main page
+  if($_SESSION['id']=-1)//[debug] check where session id is initialized and set if errors occur
+    return $this->renderer->render($response, "/login.phtml");
+  
   return $this->renderer->render($response, "/index.phtml");//file in template folder
 });
 
 
-$app->get('/hello', function (Request $request, Response $response) {//no real purpose
-/*
-  include_once('MyView.php');
+$app->post('/main', function (Request $request, Response $response) {//login
 
-  $t = new MyView();
+  //$post = $request->getParsedBody();
+  $uName = $_POST['username'];
+  $pass = $_POST['password'];
 
-  $t->friends = array(
-    'Rachel', 'Monica', 'Phoebe', 'Chandler', 'Joey', 'Ross'
-  );
-
-  $t->render('hello.phtml');
-*/
-  return $this->renderer->render($response, "/hello.phtml");//file in template folder
+  $res = login($uName, $pass);
+  if($res)
+    return $this->renderer->render($response, "/index.phtml");//file in template folder
+  else
+    return $this->renderer->render($response, "/login.phtml");
 });
+
+
+
+$app->post('/reg', function (Request $request, Response $response) {//registration
+
+  //$post = $request->getParsedBody();
+  $uName = $_POST['username'];
+  $pass = $_POST['password'];
+  $email = $_POST['email'];
+  $contact = intval($_POST['contact']);
+
+  $res = saveUser($uName, $pass, $email, $contact);
+  if($res)
+    return $this->renderer->render($response, "/index.phtml");//file in template folder
+  else
+    return $this->renderer->render($response, "/login.phtml");
+});
+
+
+
+$app->get('/logout', function (Request $request, Response $response) {//prints all available items in json format
+  $res=logout();//function from lib.php
+    //$response = $response->withJson($items);
+  return $this->renderer->render($response, "/login.phtml");
+  //return $response="hi";
+});
+
 
 
 $app->get('/items', function (Request $request, Response $response) {//prints all available items in json format
@@ -55,8 +84,10 @@ $app->get('/items', function (Request $request, Response $response) {//prints al
   });
 
 
-$app->get('/user/{id}', function (Request $request, Response $response, $args) {//prints user with userid 'id' in json format
-    $id = $args['id'];
+
+$app->get('/user', function (Request $request, Response $response, $args) {//prints user with userid 'id' in json format
+    $id = $_SESSION['id'];
+    //$id = $args['id'];
     $items=getUser($id);//fuction from lib.php
     $response = $response->withJson($items);
     return $response;
@@ -74,6 +105,21 @@ $app->get('/items/{id}', function (Request $request, Response $response, $args) 
     return $response;
   });
 
+$app->get('/usrIntr/{uid}/{iid}', function (Request $request, Response $response, $args){
+  $uid=$args['uid'];
+  $item=$args['iid'];
+
+  if($uid!=null && $item!=null){
+    $res=makeInterest($uid,$item);
+    if($res){
+      $response=$uid." is interested in ".$item;
+    }
+    else
+      $response=$uid." could not make new interest in ".$item;
+  }
+
+  return $response;
+});
 
 
 $app->run();
