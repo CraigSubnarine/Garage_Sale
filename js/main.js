@@ -36,7 +36,7 @@ function createTable(records){//List all available items in database
     var key;
     var link='http://localhost:8080/garage_sale/templates/item.php';
     var sec_id = "#row_sec";
-    var htmlStr;
+    var htmlStr = "";
 
     records.forEach(function(el){
         key = "http://localhost:8080/Garage_Sale/index.php/items/"+ el.itemid;
