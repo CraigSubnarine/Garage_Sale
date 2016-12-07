@@ -1,5 +1,6 @@
 <?php
-  include "base.php"
+  include "base.php";
+  include "../lib.php";
 ?>
 
 

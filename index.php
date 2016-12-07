@@ -46,9 +46,7 @@ $app->get('/signIn', function (Request $request, Response $response) {//for inde
 $app->post('/signIn', function (Request $request, Response $response) {//login
   $uName = $_POST['username'];
   $pass = $_POST['password'];
-  $a=false;
   $a=login($uName, $pass);
-  //var_dump($a);
   if($a){
     echo '<script>window.location.href = "../templates/home.php";</script>';
  }
@@ -60,8 +58,6 @@ $app->post('/signIn', function (Request $request, Response $response) {//login
 
 
 $app->post('/reg', function (Request $request, Response $response) {//registration
-
-  //$post = $request->getParsedBody();
   $uName = $_POST['username'];
   $pass = $_POST['password'];
   $email = $_POST['email'];
