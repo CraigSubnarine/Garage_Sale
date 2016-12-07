@@ -75,7 +75,7 @@
                         <a href="#"><span class="glyphicon glyphicon-info-sign"></span> About Us</a>
                     </li>
                     <li>
-                      <a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                      <a href="http://localhost:8080/garage_sale/"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                     </li>
                 </ul>
             </div>
