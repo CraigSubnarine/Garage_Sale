@@ -1,5 +1,5 @@
 <?php
-  include "base.php"
+  require __DIR__ . "\base.php";
 ?>
 
   <div class="container">
@@ -31,7 +31,13 @@
               <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
 
             </div>
+
+            <div id="item_sec"></div>;
           </div>
 
     </div>
+  </body>
+
+  
     <!-- /.container -->
+</html>
