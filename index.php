@@ -10,11 +10,6 @@ require 'vendor/autoload.php';
 include "lib.php";
 
 
-
-
-
-
-
 $configuration = [
     'settings' => [
         'displayErrorDetails' => true,
@@ -29,9 +24,9 @@ $app = new App($container);
 
 
 $app->get('/', function (Request $request, Response $response) {//for index main page
-  if($_SESSION['id']=-1)//[debug] check where session id is initialized and set if errors occur
-    return $this->renderer->render($response, "/login.phtml");
-  
+  // if($_SESSION['id']=-1)//[debug] check where session id is initialized and set if errors occur
+  //   return $this->renderer->render($response, "/login.phtml");
+
   return $this->renderer->render($response, "/home.php");//file in template folder
 });
 
@@ -87,8 +82,8 @@ $app->get('/items', function (Request $request, Response $response) {//prints al
 
 
 $app->get('/user', function (Request $request, Response $response, $args) {//prints user with userid 'id' in json format
-    $id = $_SESSION['id'];
-    //$id = $args['id'];
+    // $id = $_SESSION['id'];
+    $id = 1;
     $items=getUser($id);//fuction from lib.php
     $response = $response->withJson($items);
     return $response;
@@ -98,9 +93,10 @@ $app->get('/user', function (Request $request, Response $response, $args) {//pri
 $app->get('/items/{id}', function (Request $request, Response $response, $args) {//prints item with itemid 'id' in json format
     $id = $args['id'];
     $item=getItem($id);//fuction from lib.php
-    if($item!=null)
-      $response = $response->withJson($item);
-    else
+    if($item!=null){
+      //$response = $response->withJson($item);
+      return $this->renderer->render($response, "/item.php");
+    }else
       $response = $response->withStatus(404);
 
     return $response;

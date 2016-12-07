@@ -40,29 +40,11 @@
               </div>
       </div>
 
-      <!-- Project One -->
-        <!-- <div class="row">
-                <div class="col-md-6 panel panel-default text-center">
-                    <div class="panel-heading">
-                        <span class="fa-stack fa-5x">
-                              <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                              <i class="fa fa-tree fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </div>
-                </div>
-                    <div class="col-md-5 panel-body">
-                        <h4>Product name</h4>
-                        <p>Price</p>
-                        <p>Type</p>
-                        <button type="button" class="btn btn-warning" href="#"><span class="glyphicon glyphicon-eye-open"></span> View Product</i></Button>
-                    </div>
-          </div> -->
-      <!-- /.row -->
         <!-- <div class="row"> -->
             <div id="row_sec"></div>
         <!-- </div> -->
 
-      
+
 
     </div>
 </body>

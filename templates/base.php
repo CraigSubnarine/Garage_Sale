@@ -1,9 +1,3 @@
-<?php
-    if(!isset($_SESSION)){
-      session_start();
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +11,7 @@
 
     <title>Garage</title>
 
-
+<!---------------------------------------------------------------------->
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -28,7 +22,7 @@
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link href="../css/main.css" rel="stylesheet" type="text/css">
-   
+
     <!--<link rel="stylesheet" href="../css/style.css">-->
 
 
@@ -87,11 +81,7 @@
     <!-- Page Content -->
     <div class="container">
 
-
     </div>
 
     <!-- /.container -->
     <hr>
-    <!-- Footer -->
-    <!-- <footer class="footer-distributed">
-    </footer> -->

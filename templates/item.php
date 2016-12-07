@@ -1,37 +1,92 @@
-<?php
-  include "base.php"
-?>
+<!DOCTYPE html>
+<html lang="en">
 
-  <div class="container">
+<head>
 
-    <!-- Content Row -->
-      <div class="row">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-          <!-- Blog Post Content Column -->
-          <div class="col-lg-8">
+    <title>Garage</title>
+
+<!---------------------------------------------------------------------->
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../../css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="../../css/main.css" rel="stylesheet" type="text/css">
+
+    <!--<link rel="stylesheet" href="../css/style.css">-->
 
 
-              <!-- Date/Time -->
-              <p><i class="fa fa-clock-o"></i> Posted on August 24, 2013 at 9:00 PM</p>
-              <button type="button" class="btn btn-primary btn-success" href="#"><span class="glyphicon glyphicon-eye-open"></span> View Owner</i></Button>
-              <button type="button" class="btn btn-primary btn-success" href="#"><span class="glyphicon glyphicon-unchecked"></span> Interested?</i></Button>
+    <!-- jQuery -->
+    <script src="../../js/jquery.js"></script>
 
-              <hr>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../js/bootstrap.min.js"></script>
 
-              <!-- Preview Image -->
-              <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+    <script src="../../js/main.js"></script>
 
-              <hr>
+<!---------------------------------------------------------------------->
 
-              <!-- Post Content -->
-              <h3>Item Name</h3>
-              <h4>Price</h4>
-              <h4>Type</h4>
-              <h4>Quantity Avalible</h4>
-              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
+</head>
 
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div id="container" class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="glyphicon glyphicon-menu-hamburger glyphicon-default"></span>
+                </button>
+                <a class="navbar-brand" href="http://localhost:8080/garage_sale/templates/home.php">Garage</a>
             </div>
-          </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                      <a href="http://localhost:8080/garage_sale/templates/newitem.php"><span class="glyphicon glyphicon-plus"></span>  New Item</a>
+                  </li>
+                    <li>
+                        <a href="http://localhost:8080/garage_sale/templates/myprofile.php"><span class="glyphicon glyphicon-user"></span>  Profile</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost:8080/garage_sale/templates/stats.php"><span class="glyphicon glyphicon-tags"></span>  Sales</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="glyphicon glyphicon-pushpin"></span>  My Interests</a>
+                    </li>
+                    <li>
+                        <a href="#"><span class="glyphicon glyphicon-info-sign"></span> About Us</a>
+                    </li>
+                    <li>
+                      <a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <hr>
+    <!-- Page Content -->
 
-    </div>
-    <!-- /.container -->
+      <div class="container">
+
+        <!-- Content Row -->
+        <div class="item_sec">
+        </div>
+
+      </div>
+          <!-- /.container -->
+    <hr>
