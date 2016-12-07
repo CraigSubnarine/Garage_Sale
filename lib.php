@@ -193,20 +193,24 @@ function updateUser($uid, $name, $password, $contact){
 // echo updateUser(1, "Mike", "1234", 9999999);
 
 function login($name, $password){
+	$log=false;
 	$password = sha1($password);
 	$db = getDBConnection();
+
 	if ($db != null){
 		$sql = "SELECT `userid`, `username` FROM `users` WHERE '$name' = username AND '$password' = password;";
 		$res = $db->query($sql);
+
 		if ($res && $row=$res->fetch_assoc()){
 			$_SESSION['username']=$name;
 			$_SESSION['id']=$row['userid'];
-			$db->close();
+			
 			return true;
 		}
-		$db->close();
+
 	}
-	return false;
+	$db->close();
+	return $log;
 }
 //var_dump(login("Mike","1234"));
 

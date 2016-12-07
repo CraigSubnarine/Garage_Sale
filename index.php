@@ -27,7 +27,6 @@ $app = new App($container);
 
 
 
-
 $app->get('/', function (Request $request, Response $response) {//for index main page
   if($_SESSION['id']=-1)//[debug] check where session id is initialized and set if errors occur
     return $this->renderer->render($response, "/login.phtml");
@@ -35,30 +34,29 @@ $app->get('/', function (Request $request, Response $response) {//for index main
   return $this->renderer->render($response, "/home.php");//file in template folder
 });
 
+/*
 $app->get('/signIn', function (Request $request, Response $response) {//for index main page
   if($_SESSION['id']=-1)//[debug] check where session id is initialized and set if errors occur
     return $this->renderer->render($response, "/login.phtml");
   
   return $this->renderer->render($response, "/home.php");//file in template folder
 });
+*/
 
-
-// $app->post('signIn.php', function (Request $request, Response $response) {//login
-
-//   //$post = $request->getParsedBody();
-//   $uName = $_POST['username'];
-//   $pass = $_POST['password'];
-
-//   $res = login($uName, $pass);
-//   /*
-//   if($res)
-//     return $this->renderer->render($response, "/home.php");//file in template folder
-//   else
-//     return $this->renderer->render($response, "../");
-//     //return false;
-//   */
-//   return $res;
-// });
+$app->post('/signIn', function (Request $request, Response $response) {//login
+  $uName = $_POST['username'];
+  $pass = $_POST['password'];
+  $a=false;
+  $a=login($uName, $pass);
+  //var_dump($a);
+  if($a){
+    echo '<script>window.location.href = "../templates/home.php";</script>';
+ }
+  else{
+    echo '<script>window.location.href = "../";</script>';
+  }
+  
+});
 
 
 $app->post('/reg', function (Request $request, Response $response) {//registration
