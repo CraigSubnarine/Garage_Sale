@@ -20,11 +20,11 @@
                       <div class="panel-body">
                           <select id="select_options" class="form-control" >
                               <option value="">Select Type</option>
-                              <option value="clothes">Clothes</option>
-                              <option value="computer">Computers</option>
-                              <option value="phones">Cell Phones</option>
-                              <option value="nouns">Nouns</option>
-                              <option value="names">Names</option>
+                              <option value="clothes">Clothing</option>
+                              <option value="computer">Automotive</option>
+                              <option value="phones">Household</option>
+                              <option value="nouns">Electronics</option>
+                              <option value="names">Footware</option>
                           </select>
                       </div>
               </div>
@@ -62,7 +62,7 @@
             <div id="row_sec"></div>
         <!-- </div> -->
 
-      
+
 
     </div>
 </body>

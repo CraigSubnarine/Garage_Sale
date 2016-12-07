@@ -204,7 +204,7 @@ function login($name, $password){
 		if ($res && $row=$res->fetch_assoc()){
 			$_SESSION['username']=$name;
 			$_SESSION['id']=$row['userid'];
-			
+
 			return true;
 		}
 
@@ -279,23 +279,25 @@ function userInterest($uid){
 
 function addInterest($iid){
 	$db =getDBConnection();
-	$sql = "SELECT `interestno` FROM `items` WHERE itemid = $iid;";
+	$sql = "UPDATE `items` SET interestno = interestno + 1 WHERE itemid = $iid;";
 	if ($db != null){
 		$res = $db->query($sql);
-		if($res){
-			$row = $res->fetch_assoc();
-			$row = intval($row["interestno"]);
-			$row = $row + 1;
-			$sql = "UPDATE `items` SET `interestno`= $row WHERE itemid = $iid;";
-
 		}
 		$db->close();
-	}
-	return $row;
+	return ;
 }
 
-//var_dump(addInterest(1));
+// var_dump(addInterest(1));
 
-function subtractInterest(){
+function subtractInterest($iid){
+	$db =getDBConnection();
+	$sql = "UPDATE `items` SET interestno = interestno - 1 WHERE itemid = $iid;";
+	if ($db != null){
+		$res = $db->query($sql);
+		}
+		$db->close();
 
+	return;
 }
+
+// var_dump(subtractInterest(1));
