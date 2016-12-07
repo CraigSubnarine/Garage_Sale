@@ -35,21 +35,30 @@ $app->get('/', function (Request $request, Response $response) {//for index main
   return $this->renderer->render($response, "/home.php");//file in template folder
 });
 
-
-$app->post('templates/home.php', function (Request $request, Response $response) {//login
-
-  //$post = $request->getParsedBody();
-  $uName = $_POST['username'];
-  $pass = $_POST['password'];
-
-  $res = login($uName, $pass);
-  if($res)
-    return $this->renderer->render($response, "/home.php");//file in template folder
-  else
-    return $this->renderer->render($response, "../");
-    //return false;
+$app->get('/signIn', function (Request $request, Response $response) {//for index main page
+  if($_SESSION['id']=-1)//[debug] check where session id is initialized and set if errors occur
+    return $this->renderer->render($response, "/login.phtml");
+  
+  return $this->renderer->render($response, "/home.php");//file in template folder
 });
 
+
+// $app->post('signIn.php', function (Request $request, Response $response) {//login
+
+//   //$post = $request->getParsedBody();
+//   $uName = $_POST['username'];
+//   $pass = $_POST['password'];
+
+//   $res = login($uName, $pass);
+//   /*
+//   if($res)
+//     return $this->renderer->render($response, "/home.php");//file in template folder
+//   else
+//     return $this->renderer->render($response, "../");
+//     //return false;
+//   */
+//   return $res;
+// });
 
 
 $app->post('/reg', function (Request $request, Response $response) {//registration
@@ -62,7 +71,7 @@ $app->post('/reg', function (Request $request, Response $response) {//registrati
 
   $res = saveUser($uName, $pass, $email, $contact);
   if($res)
-    return $this->renderer->render($response, "/home.phtml");//file in template folder
+    return $this->renderer->render($response, "/home.php");//file in template folder
   else
     return $this->renderer->render($response, "/login.phtml");
 });
@@ -94,6 +103,12 @@ $app->get('/user', function (Request $request, Response $response, $args) {//pri
     return $response;
   });
 
+$app->get('/user/{id}', function (Request $request, Response $response, $args) {//prints user with userid 'id' in json format
+    $id = $args['id'];
+    $user=getUser($id);//fuction from lib.php
+    $response = $response->withJson($user);
+    return $response;
+  });
 
 $app->get('/items/{id}', function (Request $request, Response $response, $args) {//prints item with itemid 'id' in json format
     $id = $args['id'];
