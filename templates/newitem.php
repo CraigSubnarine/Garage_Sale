@@ -25,7 +25,7 @@
  <div class="container-fluid">
   <div class="row">
    <div class="col-md-6 col-sm-6 col-xs-12">
-    <form method="post">
+    <form action="../index.php/additem" method="POST">
      <div class="form-group ">
       <label class="control-label requiredField" for="name">
        Name
@@ -34,6 +34,28 @@
        </span>
       </label>
       <input class="form-control" id="name" name="name" type="text"/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="select">
+       Select a Type
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <select class="select form-control" id="type" name="type">
+        <option value="Other">
+        Other
+       </option>
+       <option value="Clothing">
+        Clothing
+       </option>
+       <option value="Electronic">
+        Electronic
+       </option>
+       <option value="Footwear">
+        Footwear
+       </option>
+      </select>
      </div>
      <div class="form-group ">
       <label class="control-label " for="description">
@@ -65,9 +87,11 @@
         <span class="glyphicon glyphicon glyphicon-floppy-disk"></span>
         Submit
        </button>
-       <button class="btn btn-danger " name="submit" type="submit">
+       <a href="../templates/home.php">
+        <button class="btn btn-danger " name="cancel_submit" type="submit">
         <span class="glyphicon glyphicon glyphicon-floppy-remove"></span> Cancel
        </button>
+      </a>
       </div>
      </div>
     </form>

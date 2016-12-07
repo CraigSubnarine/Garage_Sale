@@ -9,10 +9,7 @@ use Slim\Views\Twig as Twig;
 require 'vendor/autoload.php';
 include "lib.php";
 
-
-
-
-
+session_start();
 
 
 $configuration = [
@@ -89,6 +86,20 @@ $app->get('/items', function (Request $request, Response $response) {//prints al
     return $response;
   });
 
+
+$app->post('/additem', function (Request $request, Response $response) {//prints all available items in json format
+  if($_POST['name']!="" && isset($_POST['price'])){
+    $name = $_POST['name'];
+    $type = $_POST['type'];
+    $desc = $_POST['description'];
+    $quantity = intval($_POST['quantity']);
+    $price = floatval($_POST['price']);
+
+    $response = saveItem($name, $_SESSION['id'], $price, $type, $desc, $quantity);
+  }
+  echo '<script>window.location.href = "../templates/home.php";</script>';
+  return $response;
+  });
 
 
 $app->get('/user', function (Request $request, Response $response, $args) {//prints user with userid 'id' in json format
