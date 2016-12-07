@@ -1,6 +1,7 @@
 <?php
 
 
+
 function getDBConnection(){
 	try{ // Uses try and catch to handle any unforeseen errors
 		$db = new mysqli("localhost","root","","garage_sale");

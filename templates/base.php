@@ -28,7 +28,7 @@
     <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link href="../css/main.css" rel="stylesheet" type="text/css">
-   
+
     <!--<link rel="stylesheet" href="../css/style.css">-->
 
 
@@ -66,7 +66,7 @@
                         <a href="http://localhost:8080/garage_sale/templates/myprofile.php"><span class="glyphicon glyphicon-user"></span>  Profile</a>
                     </li>
                     <li>
-                        <a href="http://localhost:8080/garage_sale/templates/stats.php"><span class="glyphicon glyphicon-tags"></span>  Sales</a>
+                        <a href="http://localhost:8080/garage_sale/templates/home.php"><span class="glyphicon glyphicon-tags"></span>  Sales</a>
                     </li>
                     <li>
                         <a href="#"><span class="glyphicon glyphicon-pushpin"></span>  My Interests</a>
