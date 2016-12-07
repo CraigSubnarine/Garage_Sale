@@ -10,7 +10,7 @@ $(document).ready(function(){
 
     getAllAvalibleItems();
 
-});  
+});
 
 
 var urlParam = function(name, w){
@@ -39,15 +39,14 @@ function createTable(records){//List all available items in database
     var htmlStr;
 
     records.forEach(function(el){
+        key = "http://localhost:8080/Garage_Sale/index.php/items/"+ el.itemid;
         htmlStr += "<div class='row'>";
         htmlStr +="<div class='col-md-6 panel panel-default text-center'> <div class='panel-heading'> <span class='fa-stack fa-5x'> <i class='fa fa-circle fa-stack-2x text-primary'></i> <i class='fa fa-tree fa-stack-1x fa-inverse'></i> </span> </div> </div>";
         htmlStr +="<div class='col-md-5 panel-body'>";
         htmlStr +="<h4>"+el.itemname+"</h4>";
         htmlStr +="<p>"+el.price+"</p>";
         htmlStr +="<p>"+el.type+"</p>";
-        htmlStr += "<td><button class='btn btn-primary' onclick=\"display("+el.itemid+")\"><i class='fa fa-eye' aria-hidden='true'></i></button> ";
-        //htmlStr +="<button type='button' class='btn btn-warning' href=\"http://localhost:8080/garage_sale/templates/item.php\"'><span class='glyphicon glyphicon-eye-open'></span> View Product</i></Button>";
-        // htmlStr +="<form action='http://localhost:8080/garage_sale/templates/item.php?Use_Id='"+el.itemid+">"+"<input type='submit' class='btn btn-warning' value='Veiw Item' />"+"</form>";
+        htmlStr +="<a href='"+key+"'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-eye-open'></span> View Item</Button></a>";
         htmlStr +="</div>";
         htmlStr +="</div>" ;
 
@@ -75,10 +74,6 @@ function displayError(rec){
 }
 
 
-function getItem(itemid){
-    console.log("Attempting to retrieve single item from the database via AJAX");
-    $.get(base_url+"/items/"+itemid, processItem, "json");
-}
 
 function getAuthor(userid){
     console.log("Attempting to retrieve single user from the database via AJAX");
@@ -92,27 +87,34 @@ function processUser(records){
     return records.username;
 }
 
+function getItem(itemid){
+  console.log("Attempting to retrieve single item from the database via AJAX");
+  $.get(base_url+"/items/"+itemid, processItem, "json");
+}
+
 function processItem(records){
     console.log(records);
     showItem(records);
 }
 
 function showItem(records){
-    var key;
+    // var key;
     var sec_id = "#item_sec";
-    var htmlStr = $("#table_heading").html();
+    var htmlStr;
 
-    htmlStr +="<p><i class='fa fa-clock-o'></i> Posted on August 24, 2013 at 9:00 PM</p>";
-    htmlStr +="<button type='button' class='btn btn-primary btn-success' href='#''><span class='glyphicon glyphicon-eye-open'></span> View Owner</i></Button>";
-    htmlStr +="<button type='button' class='btn btn-primary btn-success' href='#''><span class='glyphicon glyphicon-unchecked'></span> Interested?</i></Button>";
+    htmlStr +="<p><i class='fa fa-clock-o'></i>"+records.timestamp+"</p>";
+    htmlStr +="<a ><button type='button' class='btn btn-primary btn-success'><span class='glyphicon glyphicon-eye-open'></span> View Owner</button></a>";
+    htmlStr +="<a><button type='button' class='btn btn-primary btn-success'><span class='glyphicon glyphicon-unchecked'></span> Interested?</button></a>";
     htmlStr +="<hr>";
     htmlStr +="<img class='img-responsive' src='http://placehold.it/900x300' alt=''>";
     htmlStr +="<hr>";
     htmlStr +="<h3>"+records.itemname+"</h3>";
-    htmlStr +="<h4>Price</h4>";
-    htmlStr +="<h4>Type</h4>";
-    htmlStr +="<h4>Quantity Avalible</h4>";
-    htmlStr +="<p class='lead'></p>";
+    htmlStr +="<h4>"+records.price+"</h4>";
+    htmlStr +="<h4>"+records.type+"</h4>";
+    htmlStr +="<h4>"+records.quantity+"</h4>";
+    htmlStr +="<p class='lead'>"+records.description+"</p>";
+    htmlStr +="</div></div>";
+    $(sec_id).html(htmlStr);
 }
 
 function fetchUser(records){
