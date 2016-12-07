@@ -1,0 +1,11 @@
+"use strict";
+console.log("JS starting");
+
+var base_url="../index.php";
+
+$(document).ready(function(){
+    console.log("All Elements in the Page was successfully loaded, we can begin our application logic");
+    
+    getItem();
+    
+});  
