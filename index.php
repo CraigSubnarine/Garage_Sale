@@ -55,7 +55,7 @@ $app->post('/signIn', function (Request $request, Response $response) {//login
   else{
     echo '<script>window.location.href = "../";</script>';
   }
-  
+
 });
 
 
@@ -67,11 +67,13 @@ $app->post('/reg', function (Request $request, Response $response) {//registrati
   $email = $_POST['email'];
   $contact = intval($_POST['contact']);
 
-  $res = saveUser($uName, $pass, $email, $contact);
+  $res = (saveUser($uName, $pass, $email, $contact));
   if($res)
-    return $this->renderer->render($response, "/home.php");//file in template folder
+    echo '<script>window.location.href = "../templates/home.php";</script>';
+    // return $this->renderer->render($response, "/home.php");//file in template folder
   else
-    return $this->renderer->render($response, "/login.phtml");
+    echo '<script>alert("Registration Error")";</script>';
+    // return $this->renderer->render($response, "/login.phtml");
 });
 
 
