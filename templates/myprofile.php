@@ -6,7 +6,7 @@
 
   <div class="container">
     <button type="button" class="btn btn-warning" href="#"><span class="glyphicon glyphicon-edit"></span> Edit Contact Info</button>
-    <button type="button" class="btn btn-warning" href="#"><span class="glyphicon glyphicon-tasks"></span> View My Stats</button>
+    <button type="button" class="btn btn-warning" href="http://localhost:8080/garage_sale/templates/stats.php"><span class="glyphicon glyphicon-tasks"></span> View My Stats</button>
     <hr>
     <div class="row">
               <div class="col-md-12">

@@ -44,7 +44,7 @@ function processAllItems(records){//calls function with results from db
 
 function createTable(records){//List all available items in database
     var sec_id = "#row_sec";
-    var htmlStr="";
+    var htmlStr = "";
 
     records.forEach(function(el){
         var key='http://localhost:8080/garage_sale/templates/item.php?i='+el.itemid;
@@ -127,6 +127,8 @@ function showItem(records){
     var sec_id = "#item_sec";
     var htmlStr="";
     //console.log("itemname= ");
+    var htmlStr;
+
     htmlStr +="<p><i class='fa fa-clock-o'></i>"+records.timestamp+"</p>";
     htmlStr +="<a ><button type='button' class='btn btn-primary btn-success'><span class='glyphicon glyphicon-eye-open'></span> View Owner</button></a>";
     htmlStr +="<button type='button' class='btn btn-primary btn-success' onclick=\"makeInterest("+records.itemid+")\"><span class='glyphicon glyphicon-unchecked'></span> Interested?</button>";
