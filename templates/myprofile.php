@@ -21,26 +21,28 @@
                       </div>
                   </div>
               </div>
-      </div>
+    </div>
       <!-- Project One -->
         <div class="row">
-                <div class="col-md-6 panel panel-default text-center">
+                <!-- <div class="col-md-6 panel panel-default text-center">
                     <div class="panel-heading">
                         <span class="fa-stack fa-5x">
                               <i class="fa fa-circle fa-stack-2x text-primary"></i>
                               <i class="fa fa-tree fa-stack-1x fa-inverse"></i>
                         </span>
                     </div>
-                </div>
-                    <div class="col-md-5 panel-body">
-                        <h4>Product name</h4>
-                        <p>Price</p>
-                        <p>Type</p>
-                        <p>Quantity</p>
-                        <button type="button" class="btn btn-primary btn-primary" href="#"><span class="glyphicon glyphicon-edit"></span> Edit Item</i></Button>
-                        <button type="button" class="btn btn-primary btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span> Delete Item</i></Button>
-                    </div>
-          </div>
+                </div> -->
+
+                <!-- <div class="col-md-5 panel-body">
+                      <h4>Product name</h4>
+                      <p>Price</p>
+                      <p>Type</p>
+                      <p>Quantity</p>
+                      <button type="button" class="btn btn-primary btn-primary" href="#"><span class="glyphicon glyphicon-edit"></span> Edit Item</i></Button>
+                      <button type="button" class="btn btn-primary btn-danger" href="#"><span class="glyphicon glyphicon-trash"></span> Delete Item</i></Button>
+                </div> -->
+                <div id="row2_sec"></div>
+        </div>
       <!-- /.row -->
 
 

@@ -105,8 +105,8 @@ $app->post('/additem', function (Request $request, Response $response) {//prints
 $app->get('/user', function (Request $request, Response $response, $args) {//prints user with userid 'id' in json format
     $id = $_SESSION['id'];
     //$id = $args['id'];
-    $items=getUser($id);//fuction from lib.php
-    $response = $response->withJson($items);
+    $user=getUser($id);//fuction from lib.php
+    $response = $response->withJson($user);
     return $response;
   });
 
@@ -128,19 +128,27 @@ $app->get('/items/{id}', function (Request $request, Response $response, $args) 
     return $response;
   });
 
-$app->get('/usrIntr/{uid}/{iid}', function (Request $request, Response $response, $args){
-  $uid=$args['uid'];
-  $item=$args['iid'];
+$app->get('/useritems', function (Request $request, Response $response) {//prints user items
+    $id = $_SESSION['id'];
+    $items=getAllUserItems($id);//fuction from lib.php
+    $response = $response->withJson($items);
+    return $response;
+  });
 
-  if($uid!=null && $item!=null){
+$app->get('/usrIntr/{iid}', function (Request $request, Response $response, $args){
+  $uid = $_SESSION['id'];
+  $item = $args['iid'];
+
+  if($uid!=-1 && $item!=null){
     $res=makeInterest($uid,$item);
     if($res){
-      $response=$uid." is interested in ".$item;
+      $response = $uid." is interested in ".$item;
     }
     else
-      $response=$uid." could not make new interest in ".$item;
+      $response = $uid." could not make new interest in ".$item;
   }
-
+  
+  echo '<script>window.location.href = "../templates/home.php";</script>';
   return $response;
 });
 
