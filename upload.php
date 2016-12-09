@@ -3,19 +3,22 @@ include "lib.php";
 $db = getDBConnection();
 
 if(isset($_POST['upload'])){
-
-  $target="images/".basename($_FILES['image']['name']);
-
   $image=$_FILES['image']['name'];
-//  $text=$_POST['text'];
-
-  $sql="INSERT INTO `images` (`id`, `name`, `timestamp`) VALUES (NULL, '$image', CURRENT_TIMESTAMP);";
-
-  $res=$db->query($sql);
+  $target="images/".basename($image);
+  $imageFileType = pathinfo($target,PATHINFO_EXTENSION);
 
   if(move_uploaded_file($_FILES['image']['tmp_name'],$target))
   {
-    echo "IMAGE UPLOADED Successfully";
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"&& $imageFileType != "gif" ) {
+    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk = 0;
+    }
+    else
+    {
+      $sql="INSERT INTO `images` (`id`, `name`, `timestamp`) VALUES (NULL, '$image', CURRENT_TIMESTAMP);";
+      $res=$db->query($sql);
+      echo "Upload successful";
+    }
   }
   else {
     echo "Image not uploaded!! ";
@@ -23,8 +26,6 @@ if(isset($_POST['upload'])){
 }
 ?>
 
-
-//for testing
 <!DOCTYPE html>
 <html>
 <head>
