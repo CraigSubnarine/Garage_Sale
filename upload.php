@@ -1,15 +1,13 @@
 <?php
 include "lib.php";
 $db = getDBConnection();
-
 if(isset($_POST['upload'])){
   $image=$_FILES['image']['name'];
   $target="images/".basename($image);
   $imageFileType = pathinfo($target,PATHINFO_EXTENSION);
-
   if(move_uploaded_file($_FILES['image']['tmp_name'],$target))
   {
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"&& $imageFileType != "gif" ) {
+    if($imageFileType != "jpg" && $imageFileType != "JPG" && $imageFileType != "png" && $imageFileType != "PNG" && $imageFileType != "jpeg" && $imageFileType != "JPEG" && $imageFileType != "GIF" &&  $imageFileType != "gif" ) {
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
     }
@@ -31,7 +29,8 @@ if(isset($_POST['upload'])){
 <head>
 
   <title>Image Upload</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
 </head>
 <body>
 <?php
@@ -42,10 +41,11 @@ if(isset($_POST['upload'])){
         <input type="hidden" name="size" value="1000000">
         <div>
           <input type ="file" name="image">
+          <span class="glyphicon glyphicon glyphicon-paperclip"></span>
         </div>
-
         <div>
-          <input type ="submit" name="upload" value="Upload image">
+          <input type ="submit" name="upload" value="Upload Image ">
+          <span class="glyphicon glyphicon glyphicon-export"></span>
         </div>
       </form>
     </div>
