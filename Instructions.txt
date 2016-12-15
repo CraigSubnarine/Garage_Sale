@@ -1,0 +1,11 @@
+Group Members:
+	Amit Balchan	00701069
+	Che Lewis	813001028
+	Craig Subnarine	813002101
+	Craig Mohammed	806003295
+
+Instructions:
+	1.Launch xampp and start MySQL and Apache servers.
+	2.Import "garage_sale.sql" into phpMyAdmin.
+	2.Type in brower searchbar "http://localhost:8080/garage_sale/"
+	3.Register an account and you're in.(or use test username:'Mike' password:'1234')

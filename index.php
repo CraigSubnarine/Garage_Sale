@@ -128,12 +128,26 @@ $app->get('/items/{id}', function (Request $request, Response $response, $args) 
     return $response;
   });
 
+
+$app->get('/del/{id}', function (Request $request, Response $response, $args) {//prints user items
+    $iid = $args['id'];
+
+    $res=deleteItem($id);//fuction from lib.php
+    $response = $response->withJson($res);
+    return $response;
+  });
+
+
 $app->get('/useritems', function (Request $request, Response $response) {//prints user items
     $id = $_SESSION['id'];
     $items=getAllUserItems($id);//fuction from lib.php
     $response = $response->withJson($items);
     return $response;
   });
+
+
+
+
 
 $app->get('/usrIntr/{iid}', function (Request $request, Response $response, $args){
   $uid = $_SESSION['id'];

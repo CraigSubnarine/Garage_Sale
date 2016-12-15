@@ -35,6 +35,7 @@
       </label>
       <input class="form-control" id="name" name="name" type="text"/>
      </div>
+     <iframe src="../upload.php" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="0" marginheight="0px" marginwidth="0px" height="60px" width="463px" allowfullscreen></iframe>
      <div class="form-group ">
       <label class="control-label requiredField" for="select">
        Select a Type

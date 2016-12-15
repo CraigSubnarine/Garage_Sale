@@ -18,6 +18,8 @@
     <title>Garage</title>
 
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
+    
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -39,7 +41,9 @@
     <script src="../js/bootstrap.min.js"></script>
 
     <script src="../js/main.js"></script>
+    
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 
 </head>
 
@@ -67,12 +71,6 @@
                     </li>
                     <li>
                         <a href="http://localhost:8080/garage_sale/templates/home.php"><span class="glyphicon glyphicon-tags"></span>  Sales</a>
-                    </li>
-                    <li>
-                        <a href="#"><span class="glyphicon glyphicon-pushpin"></span>  My Interests</a>
-                    </li>
-                    <li>
-                        <a href="#"><span class="glyphicon glyphicon-info-sign"></span> About Us</a>
                     </li>
                     <li>
                       <a href="http://localhost:8080/garage_sale/"><span class="glyphicon glyphicon-log-out"></span> Logout</a>

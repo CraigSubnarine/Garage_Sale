@@ -1,27 +1,37 @@
 <?php
 include "lib.php";
+session_start();
 $db = getDBConnection();
+$user=$_SESSION['id'];
 
 if(isset($_POST['upload'])){
 
   $target="images/".basename($_FILES['image']['name']);
 
-  $image=$_FILES['image']['name'];
-//  $text=$_POST['text'];
+  $image=$_FILES['image']['name'];//gets image from post form
+  echo $image."   ";
 
-  $sql="INSERT into `images` (`name`)VALUES ($image);";
-  $res=$db->query($sql);
+  $temp = explode(".", $_FILES["image"]["name"]);
+  $newfilename = round(microtime(true)) . '.' . end($temp);
 
-  if(move_uploaded_file($_FILES['image']['tmp_name'],$target))
-  {
-    echo "IMAGE UPLOADED Successfully";
+  if(move_uploaded_file($_FILES["image"]["tmp_name"], "images/" . $newfilename)){//moves image to "images" folder
+
+    if($db!=null){
+      $sql="INSERT INTO `images`(`name`) VALUES($newfilename)";
+      $res=$db->query($sql);
+      $id=$db->insert_id;
+      echo $id;
+
+      echo "IMAGE UPLOADED Successfully";
+    }
+    else
+      echo "!! No db connection. !!";
   }
 
 }
 ?>
 
 
-//for testing
 <!DOCTYPE html>
 <html>
 <head>

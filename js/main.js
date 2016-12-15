@@ -94,8 +94,8 @@ function createTable2(records){//List all available items in database
         htmlStr +="<p>"+el.price+"</p>";
         htmlStr +="<p>"+el.type+"</p>";
         htmlStr +="<p>"+el.quantity+"</p>";
-        htmlStr +="<button type='button' class='btn btn-primary btn-primary' href='#'><span class='glyphicon glyphicon-edit'></span> Edit Item</i></Button>";
-        htmlStr +="<button type='button' class='btn btn-danger btn-primary' href='#'><span class='glyphicon glyphicon-trash'></span> Delete Item</i></Button>";
+        //htmlStr +="<button type='button' class='btn btn-primary btn-primary' href='#'><span class='glyphicon glyphicon-edit'></span> Edit Item</i></Button>";
+        htmlStr +="<button type='button' class='btn btn-danger btn-primary' onclick=\"deleteItem("+el.itemid+")\"><span class='glyphicon glyphicon-trash'></span> Delete Item</i></Button>";
         //htmlStr +="<a href='"+key+"'><button type='button' class='btn btn-warning'><span class='glyphicon glyphicon-eye-open'></span> View Item</Button></a>";
         htmlStr +="</div>";
         htmlStr +="</div>" ;
@@ -108,8 +108,34 @@ function createTable2(records){//List all available items in database
 }
 
 
+function deleteItem(itemid){
+    swal({
+      title: "Are you sure?",
+      text: "You will not be able to recover this imaginary file!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel plx!",
+      closeOnConfirm: false,
+      closeOnCancel: false
+    },
+    function(isConfirm){
+      if (isConfirm) {
+        swal("Deleted!", "Your item has been deleted.", "success");
+        console.log("Deleting item with id'"+itemid+"'");
+        $.get(base_url+"/del/"+itemid, delResponse, "json");
+      } else {
+        swal("Cancelled", "Your item is safe.", "error");
+      }
+    });
+    
+}
 
-
+function delResponse(){
+    console.log("Item Deleted");
+    return;
+}
 
 
 function getItem(itemid){
@@ -158,18 +184,18 @@ function showItem(records){
 
 
 
-function display(el){
-    $.get(base_url+"/items/"+el, displayInfo, "json");
-}
+// function display(el){
+//     $.get(base_url+"/items/"+el, displayInfo, "json");
+// }
 
-function displayInfo(rec){
-    getAuthor(rec.userid);
-    alert(rec.itemname+": \n"+rec.description+"\nPosted by: "+pAuthor);
-}
+// function displayInfo(rec){
+//     getAuthor(rec.userid);
+//     alert(rec.itemname+": \n"+rec.description+"\nPosted by: "+pAuthor);
+// }
 
-function displayError(rec){
-  //swal("My Products", "Error Occurred", "error");
-}
+// function displayError(rec){
+//   //swal("My Products", "Error Occurred", "error");
+// }
 
 
 

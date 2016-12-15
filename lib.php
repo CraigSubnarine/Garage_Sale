@@ -158,6 +158,22 @@ function getItem($iid){
 
 // var_dump(getItem(1));
 
+function deleteItem($iid){
+	$db = getDBConnection();
+
+	if ($db != null){
+		$sql = "DELETE FROM `interests` WHERE $iid = itemid;";
+		$res = $db->query($sql);
+
+		$sql2 = "DELETE FROM `item` WHERE $iid = itemid;";
+		$res = $db->query($sql2);
+
+		$db->close();
+	}
+	return true;
+}
+
+//var_dump(deleteItem(10));
 function updateItem($iid, $price, $description, $quantity){
 	$db = getDBConnection();
 	$rec = null;
